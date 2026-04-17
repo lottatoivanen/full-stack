@@ -1,0 +1,23 @@
+### 
+GET http://localhost:3001/api/persons
+
+###
+DELETE http://localhost:3001/api/persons/4
+
+###
+GET http://localhost:3001/api/persons
+
+###
+DELETE http://localhost:3001/api/persons/10
+
+###
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "name": "Paras Kaveri",
+  "number": "123-4567890"
+}
+
+###
+GET http://localhost:3001/api/persons
