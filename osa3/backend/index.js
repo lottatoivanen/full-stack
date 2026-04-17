@@ -1,12 +1,14 @@
 const morgan = require('morgan')
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const Person = require('./models/person')
 
 app.use(morgan('tiny'))
-
 morgan.token('data', function (request, response) { return JSON.stringify(request.body) })
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :data'))
+app.use(cors())
+app.use(express.static('dist'))
 
 app.get('/api/persons', (request, response) => {
   Person.find({}).then(persons => {
